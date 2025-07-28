@@ -1,0 +1,18 @@
+.cardContainer {
+	display: flex;
+	gap: 10px;
+	overflow-x: auto;
+	overflow-y: hidden;
+	scrollbar-width: thin;
+	scrollbar-color: var(--onSecondary) var(--bg-color);
+	padding: 10px;
+}
+#projects h2 {
+	text-align: center;
+	font-size: 2.5em;
+}
+@media (min-width: 850px) {
+	.cardContainer {
+		justify-content: center;
+	}
+}

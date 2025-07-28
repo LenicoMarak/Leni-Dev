@@ -1,0 +1,45 @@
+.card {
+	width: 200px;
+	height: 100px;
+	margin: 5px;
+	padding: 10px;
+	background-image: linear-gradient(to right ,var(--card-bgL),var(--card-bgR));
+	border-radius: 10px;
+	flex-shrink: 0;
+	flex-grow: 0;
+	transition: transform 0.3s ease-out;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
+}
+.card:hover{
+	transform: scale(1.10);
+}
+.card:active{
+	background-color: bisque;
+	transform: none;
+}
+.chat-app-logo {
+	width: 20%;
+	height: 20%;
+	border-radius: 10px;
+}
+.title-container {
+	display: flex;
+	
+	width: 100%;
+}
+.card p {
+	font-size: 11px;
+	color: var(--label-fm);
+}
+.card h4 {
+	margin-left: 4px;
+	margin-top: 10px;
+}
+.arrow {
+	font-size: 30px;
+	text-align: end;
+	flex: 1;
+	position: relative;
+	left: 15%;
+	color: var(--label-fm);
+}
