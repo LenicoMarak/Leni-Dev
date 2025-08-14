@@ -29,33 +29,34 @@ const data = [
 			"XML Layouts & Material UI",
 		],
 		img: [
-			new URL("../assets/projects/chatapp/chat_app.png", import.meta.url).href,
+			new URL("../../assets/projects/chatapp/chat_app.png", import.meta.url)
+				.href,
 			new URL(
-				"../assets/projects/chatapp/Screenshot_20250717-144921.png",
+				"../../assets/projects/chatapp/Screenshot_20250717-144921.png",
 				import.meta.url
 			).href,
 			new URL(
-				"../assets/projects/chatapp/Screenshot_20250717-144928.png",
+				"../../assets/projects/chatapp/Screenshot_20250717-144928.png",
 				import.meta.url
 			).href,
 			new URL(
-				"../assets/projects/chatapp/Screenshot_20250717-144932.png",
+				"../../assets/projects/chatapp/Screenshot_20250717-144932.png",
 				import.meta.url
 			).href,
 			new URL(
-				"../assets/projects/chatapp/Screenshot_20250717-144934.png",
+				"../../assets/projects/chatapp/Screenshot_20250717-144934.png",
 				import.meta.url
 			).href,
 			new URL(
-				"../assets/projects/chatapp/Screenshot_20250717-145012.png",
+				"../../assets/projects/chatapp/Screenshot_20250717-145012.png",
 				import.meta.url
 			).href,
 			new URL(
-				"../assets/projects/chatapp/Screenshot_20250717-150049.png",
+				"../../assets/projects/chatapp/Screenshot_20250717-150049.png",
 				import.meta.url
 			).href,
 			new URL(
-				"../assets/projects/chatapp/Screenshot_20250717-150105.png",
+				"../../assets/projects/chatapp/Screenshot_20250717-150105.png",
 				import.meta.url
 			).href,
 		],
@@ -86,25 +87,25 @@ const data = [
 			"Text Editor Library",
 		],
 		img: [
-			new URL("../assets/lyric-app-logo.png", import.meta.url).href,
+			new URL("../../assets/lyric-app-logo.png", import.meta.url).href,
 			new URL(
-				"../assets/projects/glyrics/Screenshot_2025-07-27-16-33-04-18.jpg",
+				"../../assets/projects/glyrics/Screenshot_2025-07-27-16-33-04-18.jpg",
 				import.meta.url
 			).href,
 			new URL(
-				"../assets/projects/glyrics/Screenshot_2025-07-27-16-33-15-35.jpg",
+				"../../assets/projects/glyrics/Screenshot_2025-07-27-16-33-15-35.jpg",
 				import.meta.url
 			).href,
 			new URL(
-				"../assets/projects/glyrics/Screenshot_2025-07-27-16-33-26-93.jpg",
+				"../../assets/projects/glyrics/Screenshot_2025-07-27-16-33-26-93.jpg",
 				import.meta.url
 			).href,
 			new URL(
-				"../assets/projects/glyrics/Screenshot_2025-07-27-16-33-38-41.jpg",
+				"../../assets/projects/glyrics/Screenshot_2025-07-27-16-33-38-41.jpg",
 				import.meta.url
 			).href,
 			new URL(
-				"../assets/projects/glyrics/Screenshot_2025-07-27-16-34-03-65.jpg",
+				"../../assets/projects/glyrics/Screenshot_2025-07-27-16-34-03-65.jpg",
 				import.meta.url
 			).href,
 		],
@@ -129,10 +130,12 @@ const data = [
 		],
 		techUsed: ["Kotlin (Jetpack Compose)", "Android Studio", "Material UI"],
 		img: [
-			new URL("../assets/projects/calculator/calculator.png", import.meta.url)
-				.href,
 			new URL(
-				"../assets/projects/calculator/Screenshot_20250609-115049.png",
+				"../../assets/projects/calculator/calculator.png",
+				import.meta.url
+			).href,
+			new URL(
+				"../../assets/projects/calculator/Screenshot_20250609-115049.png",
 				import.meta.url
 			).href,
 		],
