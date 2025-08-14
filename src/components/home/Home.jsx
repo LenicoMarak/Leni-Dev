@@ -6,11 +6,16 @@ import Skills from "../skills/Skills";
 import Contact from "../contact/Contact";
 import profilePic from "../../assets/propic.jpg";
 import resume from "/public/myresume.pdf";
+import backgroundImage from "src/assets/30350388_7629074.png";
 
 const Home = () => {
 	return (
 		<>
-			<div id="home" className="home-container">
+			<div
+				id="home"
+				className="home-container"
+				style={{ backgroundImage: `url(${backgroundImage})` }}
+			>
 				<div className="home-content">
 					<img src={profilePic} alt="Profile" className="profile-pic" />
 					<h1>Hello, I'm Lenico Marak</h1>
