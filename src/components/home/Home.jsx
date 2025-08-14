@@ -4,17 +4,15 @@ import "./Home.css";
 import Projects from "../projects/Projects";
 import Skills from "../skills/Skills";
 import Contact from "../contact/Contact";
+import profilePic from "../../assets/propic.jpg";
+import resume from "/public/myresume.pdf";
 
 const Home = () => {
 	return (
 		<>
 			<div id="home" className="home-container">
 				<div className="home-content">
-					<img
-						src="src\assets\propic.jpg"
-						alt="Profile"
-						className="profile-pic"
-					/>
+					<img src={profilePic} alt="Profile" className="profile-pic" />
 					<h1>Hello, I'm Lenico Marak</h1>
 					<h2>Passionate Software Developer</h2>
 					<p>
@@ -24,10 +22,10 @@ const Home = () => {
 						opportunities to contribute to impactful projects and further expand
 						my expertise.
 					</p>
-					<a href="public/myresume.pdf" download="leni-resume.pdf">
+					<a href={resume} download="leni-resume.pdf">
 						<button className="bttn">Download Resume</button>
 					</a>
-					<a href="public/myresume.pdf">
+					<a href={resume}>
 						<button className="bttn">View Resume</button>
 					</a>
 				</div>

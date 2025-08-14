@@ -8,8 +8,9 @@
 		"dev": "vite",
 		"build": "vite build",
 		"lint": "eslint .",
-		"predeploy":"npm run build",
-		"deploy":"gp-pages -d dist",
+		"predeploy": "npm run build",
+		"postbuild": "powershell -Command \"Copy-Item -Path dist/index.html -Destination dist/404.html -Force\"",
+		"deploy": "gh-pages -d dist",
 		"preview": "vite preview"
 	},
 	"dependencies": {
