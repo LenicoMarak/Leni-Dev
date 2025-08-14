@@ -13,7 +13,7 @@ function Navbar({ darkMode, setDarkMode }) {
 
 	const tabs = [
 		{ name: "Home", id: "home" },
-		{ name: "AboutMe", id: "aboutme" },
+		{ name: "Projects", id: "projects" },
 		{ name: "Skills", id: "skills" },
 		{ name: "Contacts", id: "contacts" },
 	];
