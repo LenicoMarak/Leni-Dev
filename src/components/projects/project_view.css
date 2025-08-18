@@ -60,7 +60,7 @@
 }
 
 .project-details-card {
-	padding: 25px;
+	padding: 20px;
 	color: var(--label-fm);
 	border-radius: 16px;
 	box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
@@ -90,7 +90,7 @@
 	font-size: 1rem;
 }
 .image-container {
-	padding: 30px;
+	padding: 20px;
 	border-radius: 20px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -106,7 +106,7 @@
 	margin-bottom: 30px;
 }
 .image-gallery img {
-	width: 240px;
+	width: 100%;
 	height: auto;
 	border-radius: 12px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -117,15 +117,16 @@
 }
 /* Responsive */
 @media (max-width: 768px) {
-	.image-gallery {
-		flex-direction: column;
+	.project-view-container {
+		padding-left: 20px;
+		padding-right: 20px;
+		font-family: "Segoe UI", sans-serif;
 	}
-
-	.image-gallery img {
-		width: 100%;
+	.code-link {
+		font-size: 0.6em;
+		gap: 5px;
 	}
-
-	.project-details-card {
-		padding: 20px;
+	.github-ic {
+		font-size: 30px;
 	}
 }

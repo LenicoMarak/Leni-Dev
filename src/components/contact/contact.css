@@ -32,8 +32,7 @@
 	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 	padding: 40px;
 	text-align: left;
-	flex: 1; /* Allows them to grow and shrink */
-	min-width: 300px; /* Minimum width before wrapping */
+	min-width: 350px;
 }
 
 .contact-form-container h3,
@@ -149,7 +148,7 @@
 	text-decoration: underline;
 }
 
-.contact-icon{
+.contact-icon {
 	font-size: 1.5em;
 	margin-right: 15px;
 	color: var(--label-fm);
@@ -169,6 +168,7 @@
 	.contact-form-container,
 	.contact-info-container {
 		padding: 30px;
+		min-width: 80%; /* Full width on smaller screens */
 	}
 
 	.contact-section h2 {

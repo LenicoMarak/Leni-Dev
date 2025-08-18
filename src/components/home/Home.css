@@ -1,11 +1,10 @@
 .home-container {
 	display: flex;
 	align-items: center;
-	height: 85dvh;
+	height: 100dvh;
 	justify-content: center;
-	padding: 60px;
-	border-bottom-right-radius: 40px;
-	border-bottom-left-radius: 40px;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -49,10 +48,26 @@
 	border-radius: 5px;
 	background-color: #00adb5;
 	margin-inline: 3px;
+	margin-bottom: 20px;
 }
 .bttn:hover {
 	background-color: aqua;
 }
 .bttn:active {
 	background-color: aqua;
+}
+@media (max-width: 768px){
+	.profile-pic {
+		width: 150px;
+		height: 150px;
+	}
+	.home-content h1 {
+		font-size: 2rem;
+	}
+	.home-content h2 {
+		font-size: 1.2rem;
+	}
+	.home-content p {
+		font-size: 0.9rem;
+	}
 }

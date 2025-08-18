@@ -55,7 +55,7 @@ function Navbar({ darkMode, setDarkMode }) {
 		const element = document.getElementById(id);
 		setActiveTab(id);
 		if (element) {
-			element.scrollIntoView({ behavior: "smooth", block: "start" });
+			element.scrollIntoView({ behavior: "smooth", block: "nearest" });
 		}
 	};
 	return (
