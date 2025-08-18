@@ -1,7 +1,7 @@
 :root {
 	--bg-color: #ffffff;
 	--text-color: #000000;
-	--nav-bg: #6d60602a;
+	--nav-bg: #6d60609e;
 	--link-color: #333;
 	--onSecondary: #c1a8df;
 	--onGradient: #cec2e2;
@@ -18,7 +18,7 @@
 .dark-mode {
 	--bg-color: #121212;
 	--text-color: #ffffff;
-	--nav-bg: #3233355a;
+	--nav-bg: #323335b6;
 	--link-color: #bbb;
 	--onSecondary: #43404e;
 	--onGradient: #615b6c;
@@ -44,8 +44,8 @@ a {
 	color: var(--link-color);
 	text-decoration: none;
 }
-.goTopIcon{
-	font-size: 2.0em;
+.goTopIcon {
+	font-size: 2em;
 	padding: 10px;
 	position: fixed;
 	border-radius: 50%;
@@ -55,14 +55,12 @@ a {
 	cursor: pointer;
 	z-index: 999;
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.8);
-
 }
-.goTopIcon:hover{
+.goTopIcon:hover {
 	background-color: var(--active-bg);
 	transform: scale(1.04);
 }
-.goTopIcon:hover{
+.goTopIcon:hover {
 	background-color: var(--active-bg);
 	transform: scale(1.04);
-	
 }

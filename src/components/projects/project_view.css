@@ -14,7 +14,8 @@
 	margin-bottom: 20px;
 }
 .back-arrow {
-	font-size: 1.8rem;
+	width: 20px;
+	height: 20px;
 	cursor: pointer;
 	border-radius: 50%;
 	padding: 8px;
@@ -33,15 +34,13 @@
 .project-name {
 	font-size: 1.9rem;
 	font-weight: 600;
-  flex-grow: 1;
+	flex-grow: 1;
 }
 .code-link {
 	display: flex;
 	align-items: center;
 	gap: 10px;
-  text-align: end;
-	font-size: 20px;
-
+	text-align: end;
 }
 .code-link a {
 	color: blue;
@@ -100,7 +99,7 @@
 	display: grid;
 	width: 100%;
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-	margin: 0 auto;
+	/* margin: 0 auto;*/
 	gap: 15px;
 }
 .image-container h2 {

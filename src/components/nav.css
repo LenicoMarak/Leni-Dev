@@ -6,8 +6,7 @@
 	padding: 15px;
 	background-color: var(--nav-bg);
 	color: white;
-	z-index: 1000;
-	position: absolute;
+	position: fixed;
 	left: 0;
 	right: 0;
 }
@@ -23,7 +22,6 @@
 	transition: left 0.3s ease, width 0.3s ease;
 	bottom: 0;
 	z-index: 0;
-
 }
 .nav-links {
 	list-style: none;
@@ -97,7 +95,7 @@
 	background-color: #222;
 }
 
-/* Toggle container to keep it on right */
+/* Toggle container to keep it on right 10.205.250.164*/
 .toggle-container {
 	margin-left: auto;
 }
@@ -106,7 +104,7 @@
 .menu-icon {
 	display: none;
 	font-size: 24px;
-	cursor: pointer;	
+	cursor: pointer;
 }
 .nav-actions {
 	display: flex;
@@ -123,13 +121,13 @@
 	.nav-links {
 		position: absolute;
 		top: 60%;
-		left: 60%;	
+		left: 60%;
 		border-bottom-right-radius: 20px;
 		border-bottom-left-radius: 20px;
 		background-color: #333;
 		flex-direction: column;
 		width: 25%;
-		height: 25dvh;
+		z-index: 1000;
 		gap: 20px;
 		padding: 20px 0;
 		display: none;
@@ -138,7 +136,7 @@
 	.nav-links.active {
 		display: flex;
 	}
-	.nav-link:hover{
+	.nav-link:hover {
 		width: 50%;
 		border-radius: 20px;
 		padding: 10px;
