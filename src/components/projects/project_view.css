@@ -97,16 +97,14 @@
 /* Image Gallery */
 .image-gallery {
 	display: grid;
-	width: 100%;
 	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-	/* margin: 0 auto;*/
-	gap: 15px;
+	gap: 20px;
 }
 .image-container h2 {
 	margin-bottom: 30px;
 }
 .image-gallery img {
-	width: 100%;
+	width: 40dvh;
 	height: auto;
 	border-radius: 12px;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -128,5 +126,8 @@
 	}
 	.github-ic {
 		font-size: 30px;
+	}
+	.image-gallery img {
+		width: 100%;
 	}
 }
