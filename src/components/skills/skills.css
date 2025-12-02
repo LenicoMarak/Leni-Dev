@@ -46,36 +46,81 @@
 
 .skill-bar-container {
 	width: 80%;
-	background-color: #a1a1a1;
-	border-radius: 5px;
-	height: 12px;
-	padding: 1px;
-	margin-top: 10px;
+	background: rgba(60, 60, 80, 0.35);
+	border-radius: 16px;
+	height: 14px;
+	padding: 3px;
+	margin-top: 14px;
 	position: relative;
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* in dark mode, use a lighter track so it's visible on dark background */
+:is(.dark-mode) .skill-bar-container {
+	background: rgba(200, 200, 220, 0.18);
+	box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
 }
 
 .skill-bar {
 	height: 100%;
-	background-color: #c26a47; /* Color for the skill bar */
-	border-radius: 5px;
+	background: linear-gradient(
+		90deg,
+		rgba(110, 71, 255, 0.95),
+		rgba(0, 255, 213, 0.9)
+	);
+	border-radius: 12px;
 	width: 0%; /* Initial state for animation */
-	transition: width 1.5s ease-out; /* Animation for the bar fill */
+	transition: width 1.35s cubic-bezier(0.22, 0.9, 0.21, 1); /* Animation for the bar fill */
 	position: absolute; /* Allows percentage text to overlay */
 	left: 0;
 	top: 0;
+	box-shadow: 0 8px 20px rgba(110, 71, 255, 0.08);
+	overflow: visible; /* allow the badge to be visible when positioned at the end */
 }
 
 .skill-bar.animate {
-	/* The width is set by inline style based on the skill level */
+	/* The width is set by inline style based on the skill level.
+	   Add a small property so this ruleset is not empty and the linter
+	   won't complain. 'will-change' hints the browser to optimize width
+	   transitions for smoother animation. */
+	will-change: width;
 }
 
-.skill-level {
+/* place the badge inside the filled bar so it moves with the fill */
+.skill-bar .skill-level {
 	position: absolute;
-	right: 5px;
+	right: 8px;
 	top: 50%;
 	transform: translateY(-50%);
-	font-size: 0.85em;
-	color: black; /* Text color for percentage */
-	z-index: 1; /* Ensure text is above the bar */
-	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* For readability */
+	font-size: 0.82em;
+	color: #fff; /* clear contrast on the neon bar */
+	z-index: 3; /* ensure badge sits above the fill */
+	background: rgba(0, 0, 0, 0.45); /* dark translucent badge for legibility */
+	padding: 4px 8px;
+	border-radius: 999px;
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5),
+		0 2px 6px rgba(255, 255, 255, 0.02) inset;
+	min-width: 40px;
+	text-align: center;
+}
+
+@media (max-width: 480px) {
+	.skill-bar .skill-level {
+		right: 6px;
+		font-size: 0.72em;
+		min-width: 34px;
+		padding: 3px 6px;
+	}
+	.skill-bar-container {
+		width: 86%;
+	}
+}
+
+.skill-card {
+	transition: transform 0.22s ease, box-shadow 0.22s ease;
+}
+.skill-card:hover {
+	transform: translateY(-6px);
+	box-shadow: 0 18px 60px rgba(0, 0, 0, 0.5);
 }

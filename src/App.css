@@ -13,6 +13,14 @@
 	--card-bgL: #d5aa94;
 	--card-bgR: #e5c3b2;
 	--home-bg: rgba(0, 0, 0, 0.2);
+
+	/* Neon Cyber theme */
+	--neon-accent: #00ffd5;
+	--neon-accent-2: #6e47ff;
+	--neon-pink: #ff3ca6;
+	--glass-bg: rgba(255, 255, 255, 0.04);
+	--glass-border: rgba(255, 255, 255, 0.06);
+	--glass-shadow: 0 8px 40px rgba(0, 0, 0, 0.7);
 }
 
 .dark-mode {
@@ -39,6 +47,90 @@ body {
 	color: var(--text-color);
 	font-family: sans-serif;
 }
+
+/* Safety: prevent accidental horizontal overflow (keeps decorative elements or
+   tiny layout issues from creating white space on the right). Nested
+   horizontal scroll containers (e.g., carousels) still work because they
+   manage their own overflow. */
+html,
+body,
+#root {
+	overflow-x: hidden;
+}
+
+/* Ambient background gradient / animated aurora */
+body::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	background: radial-gradient(
+			30% 30% at 10% 20%,
+			rgba(110, 71, 255, 0.15),
+			transparent 10%
+		),
+		radial-gradient(
+			28% 28% at 85% 80%,
+			rgba(0, 255, 213, 0.08),
+			transparent 12%
+		),
+		radial-gradient(
+			20% 20% at 50% 60%,
+			rgba(255, 60, 166, 0.06),
+			transparent 12%
+		);
+	filter: blur(40px);
+	animation: aurora 14s linear infinite;
+}
+
+@keyframes aurora {
+	0% {
+		transform: translateY(0) scale(1);
+	}
+	50% {
+		transform: translateY(6%) scale(1.02);
+	}
+	100% {
+		transform: translateY(0) scale(1);
+	}
+}
+
+/* Slight glass and accent helpers */
+.glass-card {
+	background: linear-gradient(
+		135deg,
+		rgba(255, 255, 255, 0.03),
+		rgba(255, 255, 255, 0.015)
+	);
+	border: 1px solid var(--glass-border);
+	box-shadow: var(--glass-shadow);
+	backdrop-filter: blur(6px) saturate(120%);
+}
+
+/* Neon button look */
+.bttn {
+	border: 0;
+	padding: 8px 14px;
+	border-radius: 8px;
+	background: linear-gradient(
+		90deg,
+		rgba(0, 255, 213, 0.12),
+		rgba(110, 71, 255, 0.08)
+	);
+	color: #bfeff0;
+	box-shadow: 0 6px 18px rgba(0, 255, 213, 0.06),
+		0 2px 6px rgba(110, 71, 255, 0.03) inset;
+	transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+	font-weight: 600;
+}
+.bttn:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 30px rgba(0, 255, 213, 0.12);
+}
+.bttn:active {
+	transform: translateY(-1px) scale(0.995);
+}
+
 a {
 	color: var(--link-color);
 	text-decoration: none;
@@ -62,4 +154,57 @@ a {
 .goTopIcon:hover {
 	background-color: var(--active-bg);
 	transform: scale(1.04);
+}
+
+/* -----------------------
+   Mobile tap highlight
+   -----------------------
+   Many mobile browsers show a default tap-highlight / focus rectangle
+   around clickable elements (anchors, buttons, etc.). That can look
+   like a small box on top of content when the user taps. We remove the
+   default tap highlight and provide accessible focus styles instead.
+*/
+a,
+button,
+input,
+textarea,
+label,
+.card,
+.bttn,
+.back-arrow,
+.menu-icon,
+svg {
+	/* Remove default mobile tap highlight for svg icons as well
+	   (React Icons render as <svg> elements). Keep keyboard focus
+	   via :focus-visible elsewhere. */
+	-webkit-tap-highlight-color: transparent; /* Android/WebKit */
+}
+
+/* Pressed state for clickable icons (touch feedback) */
+a svg,
+button svg,
+.bttn svg,
+.menu-icon svg,
+.nav-link svg {
+	transition: transform 0.12s ease, opacity 0.12s ease;
+}
+a:active svg,
+button:active svg,
+.bttn:active svg,
+.menu-icon:active svg,
+.nav-link:active svg {
+	transform: scale(0.92);
+	opacity: 0.92;
+}
+
+/* Keep keyboard users able to see focus state — hide outline only
+   for non-keyboard focus (touch) while preserving visible focus for
+   keyboard navigation using :focus-visible where supported. */
+:focus:not(:focus-visible) {
+	outline: none;
+}
+:focus-visible {
+	outline: 2px solid var(--heading-c);
+	outline-offset: 2px;
+	border-radius: 4px;
 }

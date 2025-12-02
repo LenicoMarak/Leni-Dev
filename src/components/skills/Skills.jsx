@@ -26,7 +26,7 @@ const skills = [
 	{ name: "Firebase", level: 75, icon: <IFirebase size={60} /> },
 	{ name: "Git", level: 80, icon: <SiGit color="#c2613a" /> },
 	{ name: "GitHub", level: 85, icon: <FaGithub /> },
-	{ name: "RESFull API",level:95,icon:<FaProjectDiagram/>},
+	{ name: "RESFull API", level: 95, icon: <FaProjectDiagram /> },
 	{ name: "Kotline", level: 60, icon: <SiKotlin color="violet" /> },
 	{ name: "MongoDb", level: 50, icon: <SiMongodb color="green" /> },
 	{ name: "MySql", level: 80, icon: <DiMysql color="orange" /> },
@@ -47,19 +47,52 @@ const Skills = () => {
 				});
 			},
 			{
-				threshold: 0.5, // Trigger when 50% of the section is visible
+				// On small/mobile viewports 50% visibility can be hard to reach.
+				// Use a smaller threshold and a small negative rootMargin so the
+				// animation triggers earlier when the section enters the viewport.
+				threshold: 0.15,
+				rootMargin: "0px 0px -10% 0px",
 			}
 		);
 
 		const skillsSection = document.getElementById("skills");
+		let onScrollListener;
 		if (skillsSection) {
 			observer.observe(skillsSection);
+
+			// Mobile / small viewports can behave differently. Add a small
+			// fallback so the animation still triggers even if IntersectionObserver
+			// doesn't fire reliably on some devices/browsers.
+			if (window.innerWidth <= 768) {
+				const rect = skillsSection.getBoundingClientRect();
+				if (rect.top < window.innerHeight * 0.9) {
+					// Already mostly visible — trigger immediately
+					setAnimateBars(true);
+					observer.disconnect();
+				} else {
+					// Otherwise set a lightweight scroll listener to detect
+					// when the section comes into view and trigger animation.
+					onScrollListener = () => {
+						const r = skillsSection.getBoundingClientRect();
+						if (r.top < window.innerHeight * 0.9) {
+							setAnimateBars(true);
+							window.removeEventListener("scroll", onScrollListener);
+							observer.disconnect();
+						}
+					};
+					window.addEventListener("scroll", onScrollListener, {
+						passive: true,
+					});
+				}
+			}
 		}
 
+		// Disconnect the observer when the component unmounts / cleanup and
+		// remove the scroll listener if we attached one.
 		return () => {
-			if (skillsSection) {
-				observer.unobserve(skillsSection);
-			}
+			observer.disconnect();
+			if (onScrollListener)
+				window.removeEventListener("scroll", onScrollListener);
 		};
 	}, []);
 
@@ -75,8 +108,10 @@ const Skills = () => {
 							<div
 								className={`skill-bar ${animateBars ? "animate" : ""}`}
 								style={{ width: animateBars ? `${skill.level}%` : "0%" }} // Animate width based on state
-							></div>
-							<span className="skill-level">{skill.level}%</span>
+							>
+								{/* Move level badge into the filled bar so it visually sits at the end of the fill */}
+								<span className="skill-level">{skill.level}%</span>
+							</div>
 						</div>
 					</div>
 				))}

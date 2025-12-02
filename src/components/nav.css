@@ -1,14 +1,21 @@
 .navbar {
 	display: flex;
-	max-height: 30px;
+	max-height: 56px;
 	justify-content: space-between;
 	align-items: center;
-	padding: 15px;
-	background-color: var(--nav-bg);
-	color: white;
+	padding: 12px 20px;
+	background: linear-gradient(
+		180deg,
+		rgba(255, 255, 255, 0.02),
+		rgba(0, 0, 0, 0.12)
+	);
+	color: #fff;
 	position: fixed;
 	left: 0;
 	right: 0;
+	z-index: 1000;
+	backdrop-filter: blur(8px);
+	border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .logo-title {
@@ -16,12 +23,14 @@
 }
 .tab-indicator {
 	position: absolute;
-	height: 3px;
+	height: 4px;
 	border-radius: 55px;
-	background-color: #00adb5;
-	transition: left 0.3s ease, width 0.3s ease;
-	bottom: 0;
+	background: linear-gradient(90deg, var(--neon-accent-2), var(--neon-accent));
+	transition: left 0.28s cubic-bezier(0.2, 0.9, 0.2, 1),
+		width 0.28s cubic-bezier(0.2, 0.9, 0.2, 1);
+	bottom: -3px;
 	z-index: 0;
+	box-shadow: 0 8px 30px rgba(110, 71, 255, 0.12);
 }
 .nav-links {
 	list-style: none;
@@ -42,7 +51,10 @@
 }
 
 .nav-link:hover {
-	color: #00adb5;
+	color: var(--neon-accent);
+	text-shadow: 0 8px 30px rgba(110, 71, 255, 0.05);
+	transform: translateY(-2px);
+	transition: transform 0.18s ease;
 }
 /* dark mode */
 .toggle-switch {
@@ -106,6 +118,13 @@
 	font-size: 24px;
 	cursor: pointer;
 }
+.nav-title {
+	font-family: "Rajdhani", sans-serif;
+	font-weight: 700;
+	font-size: 1.5rem;
+	color: #fff;
+	text-shadow: 0 8px 22px rgba(110, 71, 255, 0.06);
+}
 .nav-actions {
 	display: flex;
 	align-items: center;
@@ -120,17 +139,19 @@
 
 	.nav-links {
 		position: absolute;
-		top: 60%;
-		left: 60%;
-		border-bottom-right-radius: 20px;
-		border-bottom-left-radius: 20px;
-		background-color: #333;
+		top: 64px; /* sit below the nav bar */
+		left: 50%;
+		transform: translateX(-50%);
+		border-bottom-right-radius: 12px;
+		border-bottom-left-radius: 12px;
+		background-color: rgba(17, 17, 17, 0.94);
 		flex-direction: column;
-		width: 25%;
+		width: min(92%, 360px);
 		z-index: 1000;
-		gap: 20px;
-		padding: 20px 0;
+		gap: 8px;
+		padding: 10px;
 		display: none;
+		box-shadow: 0 8px 28px rgba(0, 0, 0, 0.6);
 	}
 
 	.nav-links.active {
