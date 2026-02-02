@@ -15,13 +15,18 @@ const ProjectView = () => {
 				<FiArrowLeft className="back-arrow" onClick={() => navigate(-1)} />
 				<h1 className="project-name">{data?.title || "Project Details"}</h1>
 				<div className="code-link">
-					<FaGithub className="github-ic"/>
+					<FaGithub className="github-ic" />
 					<a href={data.link} target="_blank" rel="noopener noreferrer">
 						See code on Github
 					</a>
 				</div>
 			</div>
-			<img src={data?.img[0]} alt={data?.title} className="project-main-img" />
+			<img
+				src={data?.img[0]}
+				alt={data?.title}
+				className="project-main-img"
+				loading="lazy"
+			/>
 			<div className="project-details-card">
 				<section className="project-section">
 					<h2> Project Overview</h2>
@@ -50,7 +55,12 @@ const ProjectView = () => {
 				<h2>Screenshots</h2>
 				<div className="image-gallery">
 					{data?.img?.slice(1).map((src, index) => (
-						<img key={index} src={src} alt={`Screenshot ${index + 1}`} />
+						<img
+							key={index}
+							src={src}
+							alt={`Screenshot ${index + 1}`}
+							loading="lazy"
+						/>
 					))}
 				</div>
 			</div>

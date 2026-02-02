@@ -58,7 +58,7 @@ body,
 	overflow-x: hidden;
 }
 
-/* Ambient background gradient / animated aurora */
+/* Static background gradient (aurora animation disabled for performance) */
 body::before {
 	content: "";
 	position: fixed;
@@ -66,33 +66,20 @@ body::before {
 	z-index: -1;
 	background: radial-gradient(
 			30% 30% at 10% 20%,
-			rgba(110, 71, 255, 0.15),
-			transparent 10%
+			rgba(110, 71, 255, 0.08),
+			transparent 15%
 		),
 		radial-gradient(
 			28% 28% at 85% 80%,
-			rgba(0, 255, 213, 0.08),
-			transparent 12%
+			rgba(0, 255, 213, 0.04),
+			transparent 15%
 		),
 		radial-gradient(
 			20% 20% at 50% 60%,
-			rgba(255, 60, 166, 0.06),
-			transparent 12%
+			rgba(255, 60, 166, 0.03),
+			transparent 15%
 		);
-	filter: blur(40px);
-	animation: aurora 14s linear infinite;
-}
-
-@keyframes aurora {
-	0% {
-		transform: translateY(0) scale(1);
-	}
-	50% {
-		transform: translateY(6%) scale(1.02);
-	}
-	100% {
-		transform: translateY(0) scale(1);
-	}
+	pointer-events: none;
 }
 
 /* Slight glass and accent helpers */
@@ -104,7 +91,6 @@ body::before {
 	);
 	border: 1px solid var(--glass-border);
 	box-shadow: var(--glass-shadow);
-	backdrop-filter: blur(6px) saturate(120%);
 }
 
 /* Neon button look */
@@ -186,7 +172,8 @@ button svg,
 .bttn svg,
 .menu-icon svg,
 .nav-link svg {
-	transition: transform 0.12s ease, opacity 0.12s ease;
+	will-change: transform, opacity;
+	transition: transform 0.08s ease, opacity 0.08s ease;
 }
 a:active svg,
 button:active svg,
