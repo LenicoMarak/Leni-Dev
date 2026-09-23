@@ -4,7 +4,7 @@ import "./Home.css";
 import Projects from "../projects/Projects";
 import Skills from "../skills/Skills";
 import Contact from "../contact/Contact";
-import profilePic from "../../assets/propic.jpg";
+import profilePic from "../../assets/propic.jpeg";
 import resume from "/public/myresume.pdf";
 import backgroundImage from "../../assets/30350388_7629074.png";
 
