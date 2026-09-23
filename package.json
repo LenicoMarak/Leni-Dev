@@ -9,7 +9,7 @@
 		"build": "vite build",
 		"lint": "eslint .",
 		"predeploy": "npm run build",
-		"postbuild": "powershell -Command \"Copy-Item -Path dist/index.html -Destination dist/404.html -Force\"",
+		"postbuild": "powershell -NoProfile -Command \"Copy-Item -Path dist/index.html -Destination dist/404.html -Force\"",
 		"deploy": "gh-pages -d dist",
 		"preview": "vite preview"
 	},
